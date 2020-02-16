@@ -1,0 +1,426 @@
+{
+    "cn_mysql_am_mtn_item": {
+        "mappings": {
+            "part_item": {
+                "_all": {
+                    "enabled": false
+                },
+                "dynamic_date_formats": [
+                    "strict_date_optional_time",
+                    "yyyy-MM-dd HH:mm:ss Z||yyyy-MM-dd HH:mm:ss||yyyy-MM-dd HH:mm:ss.SSS Z||yyyy-MM-dd HH:mm:ss.SSS||yyyy-MM-dd HH:mm:ss,SSS||yyyy/MM/dd HH:mm:ss||yyyy-MM-dd HH:mm:ss,SSS Z||yyyy/MM/dd HH:mm:ss,SSS Z||epoch_millis"
+                ],
+                "dynamic_templates": [
+                    {
+                        "appName_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "originalAppName",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "extractLevel_fields": {
+                            "mapping": {
+                                "index": "not_analyzed",
+                                "type": "string"
+                            },
+                            "match": "extractLevel",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "traceid_fields": {
+                            "mapping": {
+                                "index": "not_analyzed",
+                                "type": "string"
+                            },
+                            "match": "traceid",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "request_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "request",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "orderId_fields": {
+                            "mapping": {
+                                "index": "not_analyzed",
+                                "type": "string"
+                            },
+                            "match": "orderId",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "json_annotations_fields": {
+                            "mapping": {
+                                "type": "nested"
+                            },
+                            "match": "json_annotations",
+                            "match_mapping_type": "object"
+                        }
+                    },
+                    {
+                        "body_fields": {
+                            "mapping": {
+                                "index": "analyzed",
+                                "type": "string"
+                            },
+                            "match": "body",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "out_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "out",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "thriftRpcCount_fields": {
+                            "mapping": {
+                                "type": "integer"
+                            },
+                            "match": "thriftRpcCount",
+                            "match_mapping_type": "*"
+                        }
+                    },
+                    {
+                        "jsonMsg_fields": {
+                            "mapping": {
+                                "type": "object"
+                            },
+                            "match": "jsonMsg",
+                            "match_mapping_type": "object"
+                        }
+                    },
+                    {
+                        "rpcTotal_fields": {
+                            "mapping": {
+                                "type": "integer"
+                            },
+                            "match": "rpcTotal",
+                            "match_mapping_type": "*"
+                        }
+                    },
+                    {
+                        "sink_flag_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "sink_flag",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "httpRpcCount_fields": {
+                            "mapping": {
+                                "type": "integer"
+                            },
+                            "match": "httpRpcCount",
+                            "match_mapping_type": "*"
+                        }
+                    },
+                    {
+                        "in_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "in",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "errmsg_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "errmsg",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "message_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "message",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "busiPayments_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "busiPayments",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "args_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "args",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "projectName_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "projectName",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "proc_time_fields": {
+                            "mapping": {
+                                "type": "double"
+                            },
+                            "match": "proc_time",
+                            "match_mapping_type": "*"
+                        }
+                    },
+                    {
+                        "longToboolean_fields": {
+                            "mapping": {
+                                "type": "boolean"
+                            },
+                            "match": "is*",
+                            "match_mapping_type": "long"
+                        }
+                    },
+                    {
+                        "longToboolean_fields1": {
+                            "mapping": {
+                                "type": "boolean"
+                            },
+                            "match": "enableDebugMode",
+                            "match_mapping_type": "long"
+                        }
+                    },
+                    {
+                        "stringno_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "response*",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "stringno1_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "req*",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "stringno2_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "args*",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "stringno3_fields": {
+                            "mapping": {
+                                "index": "no",
+                                "type": "string"
+                            },
+                            "match": "errmsg*",
+                            "match_mapping_type": "string"
+                        }
+                    },
+                    {
+                        "string_fields": {
+                            "mapping": {
+                                "ignore_above": 512,
+                                "index": "not_analyzed",
+                                "type": "string"
+                            },
+                            "match": "*",
+                            "match_mapping_type": "string"
+                        }
+                    }
+                ],
+                "properties": {
+                    "cleanTime": {
+                        "type": "date",
+                        "fielddata": {
+                            "loading": "eager"
+                        },
+                        "format": "yyyy-MM-dd HH:mm:ss.SSS Z||yyyy-MM-dd HH:mm:ss.SSS||yyyy-MM-dd HH:mm:ss,SSS||yyyy/MM/dd HH:mm:ss||yyyy-MM-dd HH:mm:ss,SSS Z||yyyy/MM/dd HH:mm:ss,SSS Z||strict_date_optional_time||epoch_millis"
+                    },
+                    "collectTime": {
+                        "type": "date",
+                        "fielddata": {
+                            "loading": "eager"
+                        },
+                        "format": "yyyy-MM-dd HH:mm:ss.SSS Z||yyyy-MM-dd HH:mm:ss.SSS||yyyy-MM-dd HH:mm:ss,SSS||yyyy/MM/dd HH:mm:ss||yyyy-MM-dd HH:mm:ss,SSS Z||yyyy/MM/dd HH:mm:ss,SSS Z||strict_date_optional_time||epoch_millis"
+                    },
+                    "id": {
+                        "type": "string",
+                        "index": "not_analyzed",
+                        "ignore_above": 512
+                    },
+                    "item": {
+                        "properties": {
+                            "evnetTime": {
+                                "type": "long"
+                            },
+                            "features": {
+                                "properties": {
+                                    "bizType": {
+                                        "type": "long"
+                                    },
+                                    "displayChannel": {
+                                        "type": "long"
+                                    },
+                                    "suitableCities": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    }
+                                }
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "status": {
+                                "type": "long"
+                            },
+                            "title": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "udf1": {
+                                "type": "long"
+                            }
+                        }
+                    },
+                    "logTime": {
+                        "type": "date",
+                        "fielddata": {
+                            "loading": "eager"
+                        },
+                        "format": "yyyy-MM-dd HH:mm:ss.SSS Z||yyyy-MM-dd HH:mm:ss.SSS||yyyy-MM-dd HH:mm:ss,SSS||yyyy/MM/dd HH:mm:ss||yyyy-MM-dd HH:mm:ss,SSS Z||yyyy/MM/dd HH:mm:ss,SSS Z||strict_date_optional_time||epoch_millis"
+                    },
+                    "part": {
+                        "properties": {
+                            "dealed_properties": {
+                                "type": "nested",
+                                "properties": {
+                                    "key": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "keyId": {
+                                        "type": "long"
+                                    },
+                                    "value": {
+                                        "type": "string",
+                                        "index": "not_analyzed"
+                                    },
+                                    "valueId": {
+                                        "type": "long"
+                                    }
+                                }
+                            },
+                            "evnetTime": {
+                                "type": "long"
+                            },
+                            "features": {
+                                "properties": {
+                                    "isB2B": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "spuId": {
+                                "type": "long"
+                            },
+                            "title": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            }
+                        }
+                    },
+                    "sinkTime": {
+                        "type": "date",
+                        "fielddata": {
+                            "loading": "eager"
+                        },
+                        "format": "yyyy-MM-dd HH:mm:ss.SSS Z||yyyy-MM-dd HH:mm:ss.SSS||yyyy-MM-dd HH:mm:ss,SSS||yyyy/MM/dd HH:mm:ss||yyyy-MM-dd HH:mm:ss,SSS Z||yyyy/MM/dd HH:mm:ss,SSS Z||strict_date_optional_time||epoch_millis"
+                    },
+                    "sku": {
+                        "properties": {
+                            "evnetTime": {
+                                "type": "long"
+                            },
+                            "features": {
+                                "properties": {
+                                    "saleCount": {
+                                        "type": "long"
+                                    }
+                                }
+                            },
+                            "id": {
+                                "type": "long"
+                            },
+                            "price": {
+                                "type": "long"
+                            },
+                            "refId": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "udf1": {
+                                "type": "long"
+                            },
+                            "unit": {
+                                "type": "string",
+                                "index": "not_analyzed"
+                            },
+                            "usageAmount": {
+                                "type": "long"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

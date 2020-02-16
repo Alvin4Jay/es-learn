@@ -11,6 +11,7 @@ import org.elasticsearch.action.get.MultiGetItemResponse;
 import org.elasticsearch.action.get.MultiGetResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
@@ -39,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ES客户端测试
+ * ES客户端测试: https://www.jianshu.com/p/42b0c4cd0232
  *
  * @author xuweijie
  */
@@ -62,12 +63,21 @@ public class ESTestOne {
     }
 
     @Test
-    public void sweet() {
+    public void test01() {
         SearchResponse res = client.prepareSearch("tt_user").get();
         SearchHits searchHits = res.getHits();
         for (SearchHit searchHit : searchHits) {
             System.out.println(searchHit.getSourceAsString());
         }
+    }
+
+    @Test
+    public void test02() {
+        SearchRequestBuilder searchRequestBuilder = client.prepareSearch("people").setTypes("student");
+        searchRequestBuilder.setFrom(0);
+        searchRequestBuilder.setSize(3);
+        SearchResponse response = searchRequestBuilder.get();
+        response.getHits().forEach(searchHit -> System.out.println(searchHit.getSourceAsString()));
     }
 
     // json在当前版本不可用

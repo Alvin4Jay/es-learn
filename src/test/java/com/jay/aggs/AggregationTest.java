@@ -70,7 +70,7 @@ public class AggregationTest {
         }
     }
 
-    // -----指标聚合metrics----- //
+    // -----指标聚合metrics----- // 类似于sql中的min、max、count等函数
 
     // min max sum avg
     // 查询所有客户中余额的最小值
@@ -148,6 +148,7 @@ public class AggregationTest {
     @Test
     public void avgAgeMiss() {
         SearchRequestBuilder searchRequestBuilder = client.prepareSearch(INDEX).setSize(0);
+        // age字段不存在，则取18进行聚合
         searchRequestBuilder.addAggregation(AggregationBuilders.avg("avg_age").field("age").missing(18));
         SearchResponse searchResponse = searchRequestBuilder.get();
 
@@ -240,7 +241,7 @@ public class AggregationTest {
         System.out.println(percentile);
     }
 
-    // ------桶聚合----- //
+    // ------桶聚合----- // 类似于group by
 
     // -----Terms Aggregation  根据字段值项分组聚合
     @Test
